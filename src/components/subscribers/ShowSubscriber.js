@@ -20,7 +20,7 @@ const ShowSubscriber = ({subscriber}) => {
                     </Link>
                 </div>
                 <div className="col-md-2 px-3">
-                    <Link to={`/subscribers/edit/${subscriber.id}`} class="btn btn-primary">
+                    <Link to={`/subscribers/edit/${subscriber.id}`} className="btn btn-primary">
                         <i className="fas fa-pencil-alt"></i> {''}
                         Editar
                     </Link>

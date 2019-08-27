@@ -19,7 +19,22 @@ class EditSubscriber extends Component {
         e.preventDefault();
 
         //crear el objeto que va a actualizar
-        
+        const subscriberUpdate = {
+            name : this.nameInput.current.value,
+            surname : this.surnameInput.current.value,
+            carrer : this.careerInput.current.value,
+            code : this.codeInput.current.value
+        }
+        //console.log(subscriberUpdate);
+
+        //extraer firestore, y history de props
+        const { subscriber, firestore, history } = this.props;
+
+        //almacenar en la base de datos con firestore
+        firestore.update({
+            collection : 'subscribers',
+            doc : subscriber.id
+        }, subscriberUpdate).then(history.push('/subscribers'));
     }
 
         
@@ -90,7 +105,9 @@ class EditSubscriber extends Component {
          );
     }
 }
-
+EditSubscriber.propTypes = {
+    firestore : PropTypes.object.isRequired
+}
 export default compose(
     firestoreConnect(props => [
         {
