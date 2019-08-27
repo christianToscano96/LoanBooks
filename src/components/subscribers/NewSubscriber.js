@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {firestoreConnect } from 'react-redux-firebase';
+import PropTypes from 'prop-types';
 
 class NewSubscriber extends Component {
     state = { 
@@ -95,6 +96,10 @@ class NewSubscriber extends Component {
            </div>
          );
     }
+}
+
+NewSubscriber.propTypes = {
+    firestore : PropTypes.object.isRequired
 }
  
 export default firestoreConnect()(NewSubscriber);
