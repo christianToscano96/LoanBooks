@@ -52,21 +52,21 @@ const Subscribers = ({subscribers, firestore}) => {
                             <tr key={subscriber.id}>
                                 <td>{subscriber.name} {subscriber.surname}</td>
                                 <td>{subscriber.career}</td>
-                                <td>
+                                <td className="d-flex justify-content-center">
                                     <Link
                                         to={`/subscribers/show/${subscriber.id}`}
-                                        className="btn btn-success btn-block"
+                                        className="btn btn-success mr-2"
                                     >
                                         <i className="fas fa-angle-double-right"></i>{" "}
                                         Más Información
                                     </Link>
                                     <button
                                         type="button"
-                                        className="btn btn-danger btn-block"
+                                        className="btn btn-danger px-4"
                                         onClick={ () => deleteSubsbriber(subscriber.id)}
                                     >
                                         <i className="fas fa-trash-alt"></i>{''}
-                                        Eliminar
+                                        
                                     </button>
                                 </td>
                             </tr>
