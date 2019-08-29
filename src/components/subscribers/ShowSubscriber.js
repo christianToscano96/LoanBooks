@@ -28,7 +28,7 @@ const ShowSubscriber = ({subscriber}) => {
             </div>
             <hr className=" w-100" />
 
-            <div className="col-12 m-1 shadow p-3 mb-5 bg-white rounded">
+            <div className="col-12 col-md-8 m-1 shadow p-3 mb-5 bg-white rounded centerCaja">
                 <h2 className="mb-4">
                     {subscriber.name} {subscriber.surname}
                 </h2>
