@@ -5,15 +5,76 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #cc2b5e;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #753a88, #cc2b5e);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #753a88, #cc2b5e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #ffffff;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-@media (min-width:600px ) {
+.bg-nav{
+  background: #cc2b5e;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #753a88, #cc2b5e);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #753a88, #cc2b5e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+h2 {
+  color: #ffffff;
+}
+.btn-new-color{
+  background: #cc2b5e;  /* fallback for old browsers */
+  color: #ffffff;
+  transition: .5s;
+}
+.btn-new-color:hover{
+  color:#fbfbfb;
+}
+
+.tabel-bg{
+  background: #ffffff;
+  
+}
+
+.thead-bg{
+  background: rgb(255, 255, 255);  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #cc2b5e;  
+}
+.btn-delete{
+  background: #cc2b5e;  /* fallback for old browsers */
+  color: #ffffff;
+}
+.btn-more{
+  color: #cc2b5e;
+  border: #cc2b5e 1px solid;
+  font-size: 10px;
+}
+.centerCaja{
+  color: #000000;
+}
+.centerCaja>h2{
+  text-align: center;
+  color: #000000;
+}
+label{
+  color:#000000;
+}
+@media (min-width:500px ) {
+  .btn-new{
+    justify-content: flex-end;
+  }
+ 
   .centerCaja {
     position:relative;
-    left:15%;
+    left:17%;
+  }
+  .centerCaja>h2{
+    text-align: left;
+    color: #000000;
   }
 }

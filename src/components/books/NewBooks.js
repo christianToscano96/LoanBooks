@@ -41,29 +41,33 @@ class NewBooks extends Component {
     render() { 
         return ( 
             <div className="row">
-                <div className="col-12 mb-4">
-                    <Link to="/" className="btn btn-secondary">
-                        <i className="fas fa-arrow-circle-left"></i> {''}
-                        Volver al Listado
-                    </Link>
-                </div>
-
-                <div className="col-12">
-                    <h2>
-                        <i className="fas fa-book"></i> {''}
-                        Nuevo Libro
-                    </h2>
+                <div className="col-12  mb-4 d-flex justify-content-center justify-content-sm-center justify-content-md-center align-items-center ">
+                    <div className="col-md-10 ml-3">
+                        <h2>
+                            <i className="fas fa-book"></i> {''}
+                            Add Book
+                        </h2>
+                    </div>
+                    <div className="col-md-2 px-2">
+                        <Link to="/" className="btn btn-secondary">  
+                            <i className="fas fa-arrow-circle-left"></i> {''}
+                            Ir a Listado
+                        </Link>
+                    </div>
+                </div> 
+                <div className="col-12 centerCaja">
+                    
                     <div className="col-md-8 mt-5 shadow p-3 mb-5 bg-white rounded">
                         <form
                             onSubmit={this.addBook}
                         >
                             <div className="form-group">
-                                <label>Titulo: </label>
+                                <label>Title: </label>
                                 <input 
                                     type="text"
                                     className="form-control"
                                     name="title"
-                                    placeholder="Titlo o Nombre del Libro"
+                                    placeholder="Title or Name of the book"
                                     required= "true"
                                     value={this.state.titulo}
                                     onChange={this.readDate}
@@ -75,7 +79,7 @@ class NewBooks extends Component {
                                     type="text"
                                     className="form-control"
                                     name="ISBN"
-                                    placeholder="Codigo ISBN"
+                                    placeholder="Code ISBN"
                                     required= "true"
                                     value={this.state.ISBN}
                                     onChange={this.readDate}
@@ -87,20 +91,20 @@ class NewBooks extends Component {
                                     type="text"
                                     className="form-control"
                                     name="editorial"
-                                    placeholder="Editorial del Libro"
+                                    placeholder="Editorial of the book"
                                     required= "true"
                                     value={this.state.editorial}
                                     onChange={this.readDate}
                                 />
                             </div>
                             <div className="form-group">
-                                <label>Existencia: </label>
+                                <label>Existence: </label>
                                 <input 
                                     type="number"
                                     min="0"
                                     className="form-control"
                                     name="existence"
-                                    placeholder="Cantidad en existencia"
+                                    placeholder="Quntity in stock"
                                     required= "true"
                                     value={this.state.existence}
                                     onChange={this.readDate}

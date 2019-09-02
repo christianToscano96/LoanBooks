@@ -46,17 +46,23 @@ class EditSubscriber extends Component {
 
         return (
             <div className="row">
-                <div className="col-12 mb-4">
-                    <Link to={'/subscribers'} className="btn btn-secondary">
-                        <i className="fas fa-arrow-circle-left"></i> {''}
-                        Ir al Listado
-                    </Link>
-                </div>
+                <div className="col-12  mb-4 d-flex justify-content-center justify-content-sm-center justify-content-md-center align-items-center ">
+                    <div className="col-md-10 ml-3">
+                        <h2>
+                            <i className="fas fa-user"></i> {''}
+                            Edit Subscriber
+                        </h2>
+                    </div>
+                    <div className="col-md-2 px-2">
+                        <Link to={'/subscribers'} className="btn btn-secondary">
+                            <i className="fas fa-arrow-circle-left"></i> {''}
+                            Go to List
+                        </Link>
+                    </div>
+                 </div> 
+                
                 <div className="col-12">
-                    <h2>
-                        <i className="fas fa-user"></i> {''}
-                        Editar Suscriptor
-                    </h2>
+                    
 
                     <div className="row justify-content-center">
                         <div className="col-md-8 mt-5 shadow p-3 mb-5 bg-white rounded">
@@ -64,29 +70,29 @@ class EditSubscriber extends Component {
                                 onSubmit={this.editSubscriber}
                             >
                                 <div className="form-group">
-                                    <label className="font-weight-bold" >Nombre: </label>
-                                    <input type="text" className="form-control" name="name" placeholder="Nombre del Suscriptor" reqired="true" 
+                                    <label className="font-weight-bold" >Name: </label>
+                                    <input type="text" className="form-control" name="name"  placeholder="Subscriber's Name" reqired="true" 
                                             ref={this.nameInput}
                                             defaultValue={subscriber.name}
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label className="font-weight-bold">Apellido: </label>
-                                    <input type="text" className="form-control" name="surname" placeholder="Apellido del Suscriptor" reqired="true" 
+                                    <label className="font-weight-bold">Surname: </label>
+                                    <input type="text" className="form-control" name="surname" placeholder="Subscriber's Surname" reqired="true" 
                                              ref={this.surnameInput}
                                             defaultValue={subscriber.surname}
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label className="font-weight-bold">Carrera: </label>
-                                    <input type="text" className="form-control" name="career" placeholder="Carrera del Suscriptor" reqired="true"
+                                    <label className="font-weight-bold">Career: </label>
+                                    <input type="text" className="form-control" name="career" placeholder="Subscribe Career" reqired="true"
                                             ref={this.careerInput}
                                             defaultValue={subscriber.career}
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label className="font-weight-bold">Codigo: </label>
-                                    <input type="text" className="form-control" name="code" placeholder="Codigo del Suscriptor" reqired="true"
+                                    <label className="font-weight-bold">Code: </label>
+                                    <input type="text" className="form-control" name="code" placeholder="Subscribe Code" reqired="true"
                                              ref={this.codeInput}
                                             defaultValue={subscriber.code}
                                     />
@@ -94,7 +100,7 @@ class EditSubscriber extends Component {
 
                                 <input 
                                     type="submit"
-                                    value="Editar Subscriptor"
+                                    value="Edit Subscriber"
                                     className="btn btn-success"
                                 />
                             </form>

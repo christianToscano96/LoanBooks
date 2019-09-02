@@ -38,17 +38,22 @@ class NewSubscriber extends Component {
     render() { 
         return ( 
            <div className="row">
-               <div className="col-12 mb-4">
-                    <Link to={'/subscribers'} className="btn btn-secondary">
-                        <i className="fas fa-arrow-circle-left"></i> {''}
-                        Volver al Listado
-                    </Link>
-               </div>
+               <div className="col-12  mb-4 d-flex justify-content-center justify-content-sm-center justify-content-md-center align-items-center ">
+                    <div className="col-md-10 ml-3">
+                        <h2>
+                        <i className="fas fa-user-plus"></i> {''}
+                        New Subscriber
+                    </h2>
+                    </div>
+                    <div className="col-md-2 px-3">
+                        <Link to="/subscribers" className="btn btn-new-color">
+                            <i className="fas fa-arrow-circle-left"></i> {''}
+                            Go to List
+                        </Link>
+                    </div>
+            </div> 
                <div className="col-12">
-                   <h2>
-                       <i className="fas fa-user-plus"></i> {''}
-                       Nuevo Suscriptor
-                   </h2>
+                   
 
                    <div className="row justify-content-center">
                         <div className="col-md-8 mt-5 shadow p-3 mb-5 bg-white rounded">
@@ -56,29 +61,29 @@ class NewSubscriber extends Component {
                                 onSubmit={this.addSubscriber}
                             >
                                 <div className="form-group">
-                                    <label className="font-weight-bold" >Nombre: </label>
-                                    <input type="text" className="form-control" name="name" placeholder="Nombre del Suscriptor" reqired="true" 
+                                    <label className="font-weight-bold" >Name: </label>
+                                    <input type="text" className="form-control" name="name" placeholder="Subscriber's Name" reqired="true" 
                                            onChange={this.readDate}
                                            value={this.state.name}
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label className="font-weight-bold">Apellido: </label>
-                                    <input type="text" className="form-control" name="surname" placeholder="Apellido del Suscriptor" reqired="true" 
+                                    <label className="font-weight-bold">Surname: </label>
+                                    <input type="text" className="form-control" name="surname" placeholder="Subscriber's Surname" reqired="true" 
                                            onChange={this.readDate}
                                            value={this.state.surname}
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label className="font-weight-bold">Carrera: </label>
-                                    <input type="text" className="form-control" name="career" placeholder="Carrera del Suscriptor" reqired="true"
+                                    <label className="font-weight-bold">Career: </label>
+                                    <input type="text" className="form-control" name="career" placeholder="Subscribe Career" reqired="true"
                                            onChange={this.readDate}
                                            value={this.state.career}
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label className="font-weight-bold">Codigo: </label>
-                                    <input type="text" className="form-control" name="code" placeholder="Codigo del Suscriptor" reqired="true"
+                                    <label className="font-weight-bold">Code: </label>
+                                    <input type="text" className="form-control" name="code" placeholder="Subscribe Code" reqired="true"
                                            onChange={this.readDate}
                                            value={this.state.code}
                                     />
@@ -86,7 +91,7 @@ class NewSubscriber extends Component {
 
                                 <input 
                                     type="submit"
-                                    value="Agregar Subscriptor"
+                                    value="Add Subscriber"
                                     className="btn btn-success"
                                 />
                             </form>

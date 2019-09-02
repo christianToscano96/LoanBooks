@@ -21,29 +21,28 @@ const Subscribers = ({subscribers, firestore}) => {
 
     return (    
            <div className="row">
-               <div className="col-md-12 mb-4">
-                  {/*  mostrar enlace para crear nuevos subscriptores*/}
-                  <Link
-                    to="/subscribers/new"
-                    className="btn btn-primary"
-                  >
-                      <i className="fas fa-plus"></i>{" "}
-                      Nuevo Suscriptor
-                  </Link>
-               </div>
-               <div className="col-md-8">
-                   <h2>
-                        <i className="fas fa-users mr-2"></i>
-                        Subscriptores
-                    </h2> 
-                </div>
+               
+               <div className="col-12  mb-4 d-flex justify-content-center justify-content-sm-center justify-content-md-center align-items-center ">
+                    <div className="col-md-10 ml-3">
+                        <h2>
+                            <i className="fas fas fa-user mr-2"></i>
+                            Subscribers
+                        </h2>
+                    </div>
+                    <div className="col-md-2 px-5">
+                        <Link to="/subscribers/new" className="btn btn-new-color">
+                            <i className="fas fa-user-plus"></i> {''}
+                            New
+                        </Link>
+                    </div>
+                 </div> 
 
-                <table className="table table-striped mt-4">
-                    <thead className="text-light text-center bg-primary">
+                <table className="table table-striped tabel-bg mt-4">
+                    <thead className=" text-center thead-bg">
                         <tr>
-                            <th>Nombre</th>
-                            <th>Carrera</th>
-                            <th>Acciones</th>
+                            <th>Name</th>
+                            <th>Careers</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
 
@@ -55,14 +54,14 @@ const Subscribers = ({subscribers, firestore}) => {
                                 <td className="d-flex justify-content-center">
                                     <Link
                                         to={`/subscribers/show/${subscriber.id}`}
-                                        className="btn btn-success mr-2"
+                                        className="btn btn-more mr-1"
                                     >
                                         <i className="fas fa-angle-double-right"></i>{" "}
-                                        Más Información
+                                        More Info
                                     </Link>
                                     <button
                                         type="button"
-                                        className="btn btn-danger px-4"
+                                        className="btn btn-delete px-3"
                                         onClick={ () => deleteSubsbriber(subscriber.id)}
                                     >
                                         <i className="fas fa-trash-alt"></i>{''}

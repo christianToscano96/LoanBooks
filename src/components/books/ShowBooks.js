@@ -22,20 +22,20 @@ class ShowBooks extends Component {
                     <div className="col-md-10 ml-3">
                         <Link to="/" className="btn btn-secondary">  
                             <i className="fas fa-arrow-circle-left"></i> {''}
-                            Ir a Listado
+                            Go to List
                         </Link>
                     </div>
                     <div className="col-md-2 px-3">
                         <Link to={`/books/edit/${book.id}`} className="btn btn-primary">
                             <i className="fas fa-pencil-alt"></i> {''}
-                            Editar
+                            Edit
                         </Link>
                     </div>
                 </div> 
 
             <hr className="w-100"/>
 
-            <div className="col-12 col-md-8 m-1 shadow px-5 mb-5 bg-white rounded centerCaja">
+            <div className="col-md-8 mt-5 shadow p-3 mb-5 bg-white rounded centerCaja">
                 <h2 className="mb-4 mt-4">
                     {book.title} 
                 </h2>
@@ -53,13 +53,13 @@ class ShowBooks extends Component {
                 </p>
                 <p>
                     <span className="font-weight-bold">
-                        Existencia:
+                        Existence:
                     </span> {''}
                     {book.existence}
                 </p>
                 <p>
                     <span className="font-weight-bold">
-                        Prestados:
+                        Lend:
                     </span> {''}
                     {book.lend}
                 </p>

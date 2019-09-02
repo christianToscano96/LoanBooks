@@ -20,49 +20,52 @@ const Books = ({books, firestore}) => {
 
     return ( 
        <div className="row">
-           <div className="col-12 mb-4">
-               <Link to="books/new" className="btn btn-success">
-                   <i className="fas fa-plus"></i> {''}
-                   Nuevo Libro
-               </Link>
-           </div>
-           <div className="col-md-8">
-               <h2>
-                   <i className="fas fa-book"></i> {''}
-                   Libros
-               </h2>
-           </div>
+           <div className="col-12  mb-4 d-flex justify-content-center justify-content-sm-center justify-content-md-center align-items-center ">
+                    <div className="col-md-10 ml-3">
+                        <h2>
+                            <i className="fas fa-book mr-2"></i>
+                            Books
+                        </h2>
+                    </div>
+                    <div className="col-md-2 px-3">
+                        <Link to="/books/new" className="btn btn-new-color">
+                           <i class="fas fa-book-medical"></i> {''}
+                            New Book
+                        </Link>
+                    </div>
+            </div> 
 
-            <table className="table table-striped mt-4">
-                <thead className="text-light text-center bg-primary">
+            <table className="table table-striped tabel-bg mt-4">
+                <thead className="text-center thead-bg">
                     <tr>
-                        <th>Titulo</th>
+                        <th>Title</th>
                         <th>ISBN</th>
                         <th>Editorial</th>
-                        <th>Existencia</th>
-                        <th>Disponible</th>
-                        <th>Acciones</th>
+                        <th>Existence</th>
+                        <th>Avilable</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody>
+
+                <tbody className="text-center">
                     {books.map(book => (
                         <tr key={book.id}>
-                            <th>{book.title}</th>
-                            <th>{book.ISBN}</th>
-                            <th>{book.editorial}</th>
-                            <th>{book.existence}</th>
-                            <th>{book.existence - book.lend.length}</th>
+                            <td>{book.title}</td>
+                            <td>{book.ISBN}</td>
+                            <td>{book.editorial}</td>
+                            <td>{book.existence}</td>
+                            <td>{book.existence - book.lend.length}</td>
                             <td className="d-flex justify-content-center">
                                     <Link
                                         to={`/books/show/${book.id}`}
-                                        className="btn btn-success mr-2"
+                                        className="btn btn-more mr-1"
                                     >
                                         <i className="fas fa-angle-double-right"></i>{" "}
-                                        Más Detalles
+                                        More Info
                                     </Link>
                                     <button
                                         type="button"
-                                        className="btn btn-danger "
+                                        className="btn btn-delete px-3"
                                         onClick={ () => deleteBooks(book.id)}
                                         
                                     >
