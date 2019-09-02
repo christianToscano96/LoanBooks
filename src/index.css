@@ -5,10 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #cc2b5e;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #753a88, #cc2b5e);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #753a88, #cc2b5e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    color: #ffffff;
+  color: #ffffff;
 }
 
 code {
@@ -16,17 +13,17 @@ code {
     monospace;
 }
 .bg-nav{
-  background: #cc2b5e;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #753a88, #cc2b5e);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #753a88, #cc2b5e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background: #6441A5;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2a0845, #6441A5);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2a0845, #6441A5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
 }
 
 h2 {
-  color: #ffffff;
+  color: #6441A5;
 }
 .btn-new-color{
-  background: #cc2b5e;  /* fallback for old browsers */
+  background: #6441A5; /* fallback for old browsers */
   color: #ffffff;
   transition: .5s;
 }
@@ -40,20 +37,27 @@ h2 {
 }
 
 .thead-bg{
-  background: rgb(255, 255, 255);  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  color: #cc2b5e;  
+  background: #6441A5;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2a0845, #6441A5);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2a0845, #6441A5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #ffffff;  
 }
 .btn-delete{
-  background: #cc2b5e;  /* fallback for old browsers */
+  background: #6441A5;   /* fallback for old browsers */
   color: #ffffff;
 }
 .btn-more{
-  color: #cc2b5e;
-  border: #cc2b5e 1px solid;
+  color: #6ab04c; 
+  border:#6ab04c 1px solid;
   font-size: 10px;
 }
+
+.btn-success{
+  background: #6441A5;
+  float: none;
+  margin: 0 auto;
+}
+
 .centerCaja{
   color: #000000;
 }
@@ -62,7 +66,7 @@ h2 {
   color: #000000;
 }
 label{
-  color:#000000;
+  color:#333333;
 }
 @media (min-width:500px ) {
   .btn-new{

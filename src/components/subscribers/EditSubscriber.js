@@ -101,7 +101,7 @@ class EditSubscriber extends Component {
                                 <input 
                                     type="submit"
                                     value="Edit Subscriber"
-                                    className="btn btn-success"
+                                    className="btn btn-success col-lg-6 "
                                 />
                             </form>
                         </div>

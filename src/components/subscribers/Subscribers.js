@@ -23,13 +23,13 @@ const Subscribers = ({subscribers, firestore}) => {
            <div className="row">
                
                <div className="col-12  mb-4 d-flex justify-content-center justify-content-sm-center justify-content-md-center align-items-center ">
-                    <div className="col-md-10 ml-3">
+                    <div className="col-md-10 ml-3 col-sm-6">
                         <h2>
                             <i className="fas fas fa-user mr-2"></i>
                             Subscribers
                         </h2>
                     </div>
-                    <div className="col-md-2 px-5">
+                    <div className="col-md-2 col-sm-6 px-5">
                         <Link to="/subscribers/new" className="btn btn-new-color">
                             <i className="fas fa-user-plus"></i> {''}
                             New

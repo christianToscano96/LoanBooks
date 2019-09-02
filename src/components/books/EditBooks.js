@@ -52,7 +52,7 @@ class EditBooks extends Component {
                         </h2> 
                     </div>
                     <div className="col-md-2 px-3">
-                        <Link to="/" className="btn btn-new-color">
+                        <Link to="/" className="btn btn-secondari">
                             <i className="fas fa-arrow-circle-left"></i> {''}
                             Go to List
                         </Link>
@@ -95,7 +95,7 @@ class EditBooks extends Component {
                                 <input 
                                     type="submit"
                                     value="Edit Book"
-                                    className="btn btn-success"
+                                    className="btn btn-success col-lg-6"
                                 />
                             </form>
                         </div>

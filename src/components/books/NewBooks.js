@@ -51,7 +51,7 @@ class NewBooks extends Component {
                     <div className="col-md-2 px-2">
                         <Link to="/" className="btn btn-secondary">  
                             <i className="fas fa-arrow-circle-left"></i> {''}
-                            Ir a Listado
+                            Go to List
                         </Link>
                     </div>
                 </div> 
@@ -110,7 +110,7 @@ class NewBooks extends Component {
                                     onChange={this.readDate}
                                 />
                             </div>
-                            <input type="submit" className="btn btn-success" value="Agregar Libro"/>
+                            <input type="submit" className="btn btn-success col-lg-6" value="Add Book"/>
                         </form>
                     </div>
                 </div>
