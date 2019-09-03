@@ -52,7 +52,7 @@ class EditBooks extends Component {
                         </h2> 
                     </div>
                     <div className="col-md-2 px-3">
-                        <Link to="/" className="btn btn-secondari">
+                        <Link to="/" className="btn btn-secondary">
                             <i className="fas fa-arrow-circle-left"></i> {''}
                             Go to List
                         </Link>

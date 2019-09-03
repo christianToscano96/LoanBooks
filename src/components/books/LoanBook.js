@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import Spinner from '../layout/Spinner';
 import PropTypes from 'prop-types';
 
+import SubscriberTab from '../subscribers/SubscriberTab';
+
 class LoanBook extends Component {
     state = { 
         noResults : false,
@@ -42,10 +44,33 @@ class LoanBook extends Component {
                 this.setState({
                     result : data.data(),
                     noResults: false,
-                })
-                
+                })             
             }
         })
+    }
+
+
+    //store the student data to request the book 
+    applyLoan = () => {
+        const subscriber = this.state.result;
+
+        //discharge date
+        subscriber.discharge_date = new Date().toLocaleDateString();
+
+        //get the book
+        const updateBook = this.props.book;
+
+        // add subscriber to book
+        updateBook.lend.push( subscriber );
+
+        //get firestore and history from props
+        const { firestore, history, book } = this.props;
+
+        //store in the BD
+        firestore.update({
+            collection: 'books',
+            doc: book.id
+        }, updateBook).then(history.push('/'));
     }
 
     //Store the code in the state
@@ -62,6 +87,24 @@ class LoanBook extends Component {
 
         //show the spinner
         if(!book) return <Spinner />
+
+        //extrac student data
+        const { noResults, result } = this.state;
+
+        let subscriberTab, btnApply;
+        if(result.name) {
+            subscriberTab = <SubscriberTab 
+                                subscriber={result}
+                            />
+            btnApply = <button
+                            type="button"
+                            className="btn btn-secondary btn-block mb-5"
+                            onClick={this.applyLoan}
+                        >Apply for a Loan</button>                
+        } else {
+            subscriberTab = null;
+            btnApply = null;
+        }
 
 
         return ( 
@@ -100,6 +143,11 @@ class LoanBook extends Component {
                                 <input type="submit" className="btn btn-success btn-block mt-3" value="Search Subscriber"/>
                             </div>
                         </form>
+
+                        {/**show the student file and the button to apply for the loan */}
+                        {subscriberTab}
+                        {btnApply}
+
                     </div>
                 </div>
 

@@ -22,6 +22,9 @@ code {
 h2 {
   color: #6441A5;
 }
+p{
+  color: #000000;
+}
 .btn-new-color{
   background: #6441A5; /* fallback for old browsers */
   color: #ffffff;
@@ -33,7 +36,9 @@ h2 {
 
 .tabel-bg{
   background: #ffffff;
-  
+}
+.bg-card{
+  background: #6441A5;
 }
 
 .thead-bg{
@@ -42,20 +47,35 @@ h2 {
   background: linear-gradient(to right, #2a0845, #6441A5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: #ffffff;  
 }
-.btn-delete{
+.btn-delete,.btn-delete:hover{
   background: #6441A5;   /* fallback for old browsers */
   color: #ffffff;
 }
-.btn-more{
+
+.btn-more,.btn-more:hover{
   color: #6ab04c; 
   border:#6ab04c 1px solid;
   font-size: 10px;
 }
 
-.btn-success{
+.btn-success, .btn-success:hover{
   background: #6441A5;
   float: none;
   margin: 0 auto;
+}
+
+.btn-secondary{
+  color: #6441A5; 
+  border:#6441A5 2px solid;
+  font-size: 10px;
+  transition: .5s;
+}
+.btn-secondary:hover{
+  background: #6441A5; 
+  color: rgb(255, 255, 255); 
+  border:#6441A5 2px solid;
+  font-size: 10px;
+  transition: .5s;
 }
 
 .centerCaja{
@@ -67,6 +87,9 @@ h2 {
 }
 label{
   color:#333333;
+}
+span{
+  color: #000000;
 }
 @media (min-width:970px ) {
   .btn-new{
