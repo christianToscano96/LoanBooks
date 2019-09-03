@@ -68,7 +68,7 @@ h2 {
 label{
   color:#333333;
 }
-@media (min-width:500px ) {
+@media (min-width:970px ) {
   .btn-new{
     justify-content: flex-end;
   }

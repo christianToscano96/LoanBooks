@@ -10,12 +10,22 @@ class ShowBooks extends Component {
     state = {  }
     render() {
         
-        //extraer el libro
+       
+        //extract the book
         const { book } =this.props
 
         if(!book) return <Spinner />
 
+        //button to resquest a book
+        let btnLend;
 
+        if(book.existence - book.lend.length > 0 ) {
+            btnLend = <Link to={`/books/loan/${book.id}`}
+                            className="btn btn-success my-3">
+                             Apply for a loan   
+                      </Link>
+        }
+        
         return ( 
             <div className="row">
                <div className="col-12 ml-2 mb-4 d-flex justify-content-center justify-content-sm-center justify-content-md-center align-items-center ">
@@ -42,28 +52,31 @@ class ShowBooks extends Component {
                 <p>
                     <span className="font-weight-bold">
                         ISBN:
-                    </span> {''}
+                    </span> {' '}
                     {book.ISBN}
                 </p>
                 <p>
                     <span className="font-weight-bold">
                         Editorial:
-                    </span> {''}
+                    </span> {' '}
                     {book.editorial}
                 </p>
                 <p>
                     <span className="font-weight-bold">
                         Existence:
-                    </span> {''}
+                    </span> {' '}
                     {book.existence}
                 </p>
                 <p>
                     <span className="font-weight-bold">
-                        Lend:
-                    </span> {''}
-                    {book.lend}
+                        Avilable:
+                    </span> {' '}
+                    {book.existence - book.lend.length }
                 </p>
+                {/*//button to resquest a book */}
+                { btnLend }
             </div>
+            
 
             </div>
          );
