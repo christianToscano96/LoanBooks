@@ -7,10 +7,28 @@ import Spinner from '../layout/Spinner';
 import PropTypes from 'prop-types';
 
 class ShowBooks extends Component {
-    state = {  }
+
+    //return book method
+    returnBook = id => {
+        //extract firestore
+        const { firestore } = this.props;
+
+        //book copy and make a copy of the original state
+        const updateBook = {...this.props.book};
+
+        //delete the person who is making the return of the borrowed book
+        const borrowed = updateBook.lend.filter(element => element.code !== id);
+        updateBook.lend = borrowed; 
+
+        //update firebase 
+        firestore.update({
+            collection: 'books',
+            doc: updateBook.id
+        }, updateBook)
+    }
+   
     render() {
-        
-       
+            
         //extract the book
         const { book } =this.props
 
@@ -25,6 +43,7 @@ class ShowBooks extends Component {
                              Apply for a loan   
                       </Link>
         }
+        
         
         return ( 
             <div className="row">
@@ -43,41 +62,78 @@ class ShowBooks extends Component {
                     </div>
                 </div> 
 
-            <hr className="w-100"/>
+                <hr className="w-100"/>
 
-            <div className="col-md-8 mt-5 shadow p-3 mb-5 bg-white rounded centerCaja">
-                <h2 className="mb-4 mt-4">
-                    {book.title} 
-                </h2>
-                <p>
-                    <span className="font-weight-bold">
-                        ISBN:
-                    </span> {' '}
-                    {book.ISBN}
-                </p>
-                <p>
-                    <span className="font-weight-bold">
-                        Editorial:
-                    </span> {' '}
-                    {book.editorial}
-                </p>
-                <p>
-                    <span className="font-weight-bold">
-                        Existence:
-                    </span> {' '}
-                    {book.existence}
-                </p>
-                <p>
-                    <span className="font-weight-bold">
-                        Avilable:
-                    </span> {' '}
-                    {book.existence - book.lend.length }
-                </p>
-                {/*//button to resquest a book */}
-                { btnLend }
-            </div>
-            
+                <div className="col-md-8 mt-5 shadow p-3 mb-5 bg-white rounded centerCaja">
+                    <h2 className="mb-4 mt-4">
+                        {book.title} 
+                    </h2>
+                    <p>
+                        <span className="font-weight-bold">
+                            ISBN:
+                        </span> {' '}
+                        {book.ISBN}
+                    </p>
+                    <p>
+                        <span className="font-weight-bold">
+                            Editorial:
+                        </span> {' '}
+                        {book.editorial}
+                    </p>
+                    <p>
+                        <span className="font-weight-bold">
+                            Existence:
+                        </span> {' '}
+                        {book.existence}
+                    </p>
+                    <p>
+                        <span className="font-weight-bold">
+                            Avilable:
+                        </span> {' '}
+                        {book.existence - book.lend.length }
+                    </p>
+                    {/*//button to resquest a book */}
+                    { btnLend }
 
+                    {/**show people who have books */}
+                    <h3 className="my-2">Subscriber who has borrewed book</h3>
+                    {book.lend.map(lend => (
+                        <div key={lend.code} className="card my-2 mt-3">
+                            <h4 className="card-header">
+                                {lend.name} {lend.surname}
+                            </h4>
+                            <div className="card-body ">
+                                <p>
+                                    <span className="font-weight-bold">
+                                        Code:
+                                    </span> {' '}
+                                    {lend.code}
+                                </p>
+                                <p>
+                                    <span className="font-weight-bold">
+                                        career:
+                                    </span> {' '}
+                                    {lend.career}
+                                </p>
+                                <p>
+                                    <span className="font-weight-bold">
+                                        Code:
+                                    </span> {' '}
+                                    {lend.discharge_date}
+                                </p>
+                            </div>
+                            <div className="card-footer">
+                                <button
+                                    type="button"
+                                    className="btn btn-secondary font-wight-bold"
+                                    onClick={() => this.returnBook(lend.code)}
+                                >
+                                    Book Return
+                                </button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
          );
     }
