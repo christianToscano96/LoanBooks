@@ -42,7 +42,7 @@ function App() {
               <Route exact path="/subscribers/show/:id" component={UserIsAuthenticated(ShowSubscriber)} />
               <Route exact path="/subscribers/edit/:id" component={UserIsAuthenticated(EditSubscriber)} />  
 
-              <Route exact path="/login" component={Login} />  
+              <Route exact path="/login" component={UserIsNotAuthenticated(Login)} />  
              
             </Switch>
           </div>

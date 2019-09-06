@@ -29,7 +29,7 @@ const Books = ({books, firestore}) => {
                     </div>
                     <div className="col-md-2 px-3">
                         <Link to="/books/new" className="btn btn-new-color">
-                           <i class="fas fa-book-medical"></i> {''}
+                           <i className="fas fa-book-medical"></i> {''}
                             New Book
                         </Link>
                     </div>
