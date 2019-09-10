@@ -8,11 +8,14 @@ import PropTypes from 'prop-types';
 
 import SubscriberTab from '../subscribers/SubscriberTab';
 
+//Redux Action
+import { searchUser } from '../../actions/searchUserActions';
+
+
 class LoanBook extends Component {
     state = { 
         noResults : false,
         search : '',
-        result : {}
      }
 
     //search subscriber by code
@@ -23,7 +26,7 @@ class LoanBook extends Component {
         const { search } = this.state;
 
         //extrac firestore
-        const { firestore } = this.props;
+        const { firestore, searchUser } = this.props;
 
         //make inquiry
         const collection = firestore.collection('subscribers');
@@ -33,16 +36,23 @@ class LoanBook extends Component {
         query.then(result => {
             if(result.empty) {
                 //no results
+
+                //store an empty object in redux
+                searchUser({})
+
+                //update the state container if there is a result
                 this.setState({
                     noResults: true,
-                    result: {}
-                })
-
+                });
             } else {
                 //if there are results
+
+                //place the result in the redux state
                 const data = result.docs[0];
+                searchUser(data.data());
+
+                //update the state container if there is a result
                 this.setState({
-                    result : data.data(),
                     noResults: false,
                 })             
             }
@@ -52,25 +62,32 @@ class LoanBook extends Component {
 
     //store the student data to request the book 
     applyLoan = () => {
-        const subscriber = this.state.result;
+        const { user } = this.props;
 
         //discharge date
-        subscriber.discharge_date = new Date().toLocaleDateString();
+        user.discharge_date = new Date().toLocaleDateString();
 
-        //get the book
-        const updateBook = this.props.book;
+        //you can.t mutate the props take a copy and create a new arrangement
+        let borrowed = [];
+        borrowed = [...this.props.book.lend, user];
 
-        // add subscriber to book
-        updateBook.lend.push( subscriber );
+        //copy the Objet and add borrowed 
+        const book = {...this.props.books};
 
-        //get firestore and history from props
-        const { firestore, history, book } = this.props;
+        //remobe previous borrowed
+        delete book.lend;
+
+        //allocate loans
+        book.lend = borrowed;
+
+        //extract firestore
+        const { firestore, history } = this.props;
 
         //store in the BD
         firestore.update({
             collection: 'books',
             doc: book.id
-        }, updateBook).then(history.push('/'));
+        }, book ).then(history.push('/'));
     }
 
     //Store the code in the state
@@ -89,12 +106,12 @@ class LoanBook extends Component {
         if(!book) return <Spinner />
 
         //extrac student data
-        const { noResults, result } = this.state;
+        const { noResults, user } = this.props;
 
         let subscriberTab, btnApply;
-        if(result.name) {
+        if(user.name) {
             subscriberTab = <SubscriberTab 
-                                subscriber={result}
+                                subscriber={user}
                             />
             btnApply = <button
                             type="button"
@@ -167,7 +184,8 @@ export default compose(
             doc :  props.match.params.id
         }
     ]),
-    connect(({ firestore: { ordered }}, props) => ({
-        book : ordered.book && ordered.book[0]
-    }))
+    connect(({ firestore: { ordered }, user}, props) => ({
+        book : ordered.book && ordered.book[0],
+        user: user
+    }), { searchUser })
 )(LoanBook);
