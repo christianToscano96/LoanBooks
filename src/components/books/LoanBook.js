@@ -72,7 +72,7 @@ class LoanBook extends Component {
         borrowed = [...this.props.book.lend, user];
 
         //copy the Objet and add borrowed 
-        const book = {...this.props.books};
+        const book = {...this.props.book};
 
         //remobe previous borrowed
         delete book.lend;
@@ -106,7 +106,7 @@ class LoanBook extends Component {
         if(!book) return <Spinner />
 
         //extrac student data
-        const { noResults, user } = this.props;
+        const { user } = this.props;
 
         let subscriberTab, btnApply;
         if(user.name) {
@@ -121,6 +121,16 @@ class LoanBook extends Component {
         } else {
             subscriberTab = null;
             btnApply = null;
+        }
+
+        //mostrar un mensaje de error
+        const { noResults } = this.state;
+
+        let mensajeResultado = '';
+        if(noResults){
+            mensajeResultado = <div className="alert alert-danger">No hay resultados con este codigo</div>
+        } else{
+            mensajeResultado = null;
         }
 
 
@@ -164,6 +174,9 @@ class LoanBook extends Component {
                         {/**show the student file and the button to apply for the loan */}
                         {subscriberTab}
                         {btnApply}
+
+                         {/**muestra un mensaje de no resultados*/}
+                         {mensajeResultado}
 
                     </div>
                 </div>
